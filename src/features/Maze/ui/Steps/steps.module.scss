@@ -1,0 +1,19 @@
+.body {
+  display: flex;
+  gap: 32px;
+  flex-wrap: wrap;
+  padding: 32px 0;
+
+  .right {
+    transform: rotate(90deg);
+  }
+
+  .left {
+    transform: rotate(-90deg);
+  }
+
+
+  .bottom {
+    transform: rotate(180deg);
+  }
+}

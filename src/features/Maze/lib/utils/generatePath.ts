@@ -5,8 +5,8 @@ import { getRandomNumber } from '@/utils/getRandomNumber';
 const moveDirections: Step[] = [
   { direction: 'left', x: -1, y: 0 },
   { direction: 'right', x: 1, y: 0 },
-  { direction: 'top', x: 0, y: 1 },
-  { direction: 'bottom', x: 0, y: -1 },
+  { direction: 'top', x: 0, y: -1 },
+  { direction: 'bottom', x: 0, y: 1 },
 ];
 
 export const generatePath = (count: number, size: number, startPos: Coords) => {
@@ -15,7 +15,7 @@ export const generatePath = (count: number, size: number, startPos: Coords) => {
   for (let i = 0; i < count; i++) {
     while (true) {
       const direction = moveDirections[getRandomNumber(moveDirections.length) - 1];
-      if (!result.length) {
+      if (result.length < 1) {
         const newX = startPos!.x + direction.x;
         const newY = startPos!.y + direction.y;
 
@@ -28,8 +28,8 @@ export const generatePath = (count: number, size: number, startPos: Coords) => {
           break;
         }
       } else {
-        const newX = result[i - 1].x + direction.x;
-        const newY = result[i - 1].y + direction.y;
+        const newX = result.at(-1)!.x + direction.x;
+        const newY = result.at(-1)!.y + direction.y;
 
         if (newX > 0 && newX <= size && newY > 0 && newY <= size) {
           result.push({

@@ -14,7 +14,7 @@ export const Settings: FC<Props> = (props) => {
   return (
     <div className={styles.body}>
       <div className={styles.block}>
-        <label htmlFor='fieldSize'>Размен игрового поля: {props.fieldSize}</label>
+        <label htmlFor='fieldSize'>Размер игрового поля: {props.fieldSize}</label>
         <input id='fieldSize' type='range' min="2" max="10" value={props.fieldSize} step={1}
                onChange={(event) => setFieldSize(Number(event.target.value))} />
       </div>

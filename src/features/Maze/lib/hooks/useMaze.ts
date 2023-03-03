@@ -7,7 +7,7 @@ import { generateStartCoords } from '@/features/Maze/lib/utils/generateStartCoor
 import { GameStatuses } from '@/features/Maze/types/Enums';
 
 export const useMaze = () => {
-  const [cells, setCells] = useState<Step[]>([]);
+  const [stepsPath, setStepsPath] = useState<Step[]>([]);
   const [startPos, setStartPos] = useState<Coords>();
   const [answer, setAnswer] = useState<Coords>();
   const [status, setStatus] = useState<GameStatuses>(GameStatuses.IDLE);
@@ -19,13 +19,13 @@ export const useMaze = () => {
     setStatus(GameStatuses.PLAYING);
     setFieldSize(fieldSize);
     setStartPos(startPosition);
-    setCells(generatePath(stepsCount, fieldSize, startPosition));
+    setStepsPath(generatePath(stepsCount, fieldSize, startPosition));
   };
 
   const handleAnswer = (cell: Coords) => {
     setAnswer(cell);
 
-    const trueAnswer = cells.at(-1)!;
+    const trueAnswer = stepsPath.at(-1)!;
 
     if (isSameCoords(cell, trueAnswer)) {
       setStatus(GameStatuses.WIN);
@@ -41,7 +41,7 @@ export const useMaze = () => {
 
 
   return {
-    cells,
+    stepsPath,
     startPos,
     status,
     answer,
