@@ -1,0 +1,31 @@
+@import "src/styles/variables";
+
+.body {
+  all: unset;
+  width: 90px;
+  height: 90px;
+  background: $c-primary;
+  cursor: pointer;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+
+  color: $c-secondary;
+
+  img {
+    width: 100%;
+    padding: 16px;
+    height: 100%;
+  }
+
+  &:hover {
+    background: $c-highlight;
+  }
+
+  &:disabled {
+    background: $c-primary;
+    cursor: unset;
+  }
+}

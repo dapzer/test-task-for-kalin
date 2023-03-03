@@ -1,0 +1,13 @@
+.body {
+  .block {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    width: fit-content;
+
+    label {
+      width: fit-content;
+
+    }
+  }
+}

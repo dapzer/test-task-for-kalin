@@ -1,0 +1,10 @@
+@import "src/styles/variables";
+
+.body {
+  display: grid;
+  grid-template-columns: repeat(var(--columns), 90px);
+  gap: 20px;
+  flex-wrap: wrap;
+
+  padding-bottom: 20px;
+}

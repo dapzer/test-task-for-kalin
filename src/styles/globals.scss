@@ -130,6 +130,12 @@ a {
   }
 }
 
+label {
+  color: $c-secondary;
+  font-size: $fs-p;
+  font-weight: $fw-regular;
+}
+
 input {
   text-decoration: none;
   outline: none;
