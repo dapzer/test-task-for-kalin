@@ -15,6 +15,7 @@ interface Props {
 
 export const FieldItem: FC<Props> = (props) => {
   const { selectHandler } = props;
+
   const isSelected = isSameCoords(props.answer, props.cell);
   const isStart = isSameCoords(props.startPos, props.cell);
 
@@ -25,13 +26,15 @@ export const FieldItem: FC<Props> = (props) => {
           <Image src='/maze/icons/win.svg' width={90} height={90} alt='Win' />
         </div>
       )}
+
       {props.showLose && isSelected && (
         <div className={styles.lose}>
           <Image src='/maze/icons/lose.svg' width={90} height={90} alt='Lose' />
         </div>
       )}
+
       {isStart && !isSelected && (
-        <div className={styles.lose}>
+        <div>
           <Image src='/maze/icons/start.svg' width={90} height={90} alt='Lose' />
         </div>
       )}

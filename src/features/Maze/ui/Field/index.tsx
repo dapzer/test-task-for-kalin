@@ -22,11 +22,10 @@ export const Field: FC<Props> = (props) => {
   };
 
   return (
-    <div className={styles.body} style={
-      {
-        '--columns': props.fieldSize,
-      } as React.CSSProperties
-    }>
+    <div className={styles.body} style={{
+      '--columns': props.fieldSize,
+    } as React.CSSProperties}
+    >
       {props.fields.map((el, index) => (
         <FieldItem key={index}
                    selectHandler={() => selectCell(index)}

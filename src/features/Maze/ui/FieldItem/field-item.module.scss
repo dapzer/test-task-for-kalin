@@ -28,4 +28,13 @@
     background: $c-primary;
     cursor: unset;
   }
+
+  .win {
+    background: $c-success;
+  }
+
+  .lose {
+    background: $c-error;
+  }
 }
+

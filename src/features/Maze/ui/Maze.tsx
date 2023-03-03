@@ -19,12 +19,15 @@ export const Maze = () => {
     handleAnswer,
     restartGame,
   } = useMaze();
-  console.log(startPos, stepsPath);
+
   return (
     <div>
       {status === GameStatuses.IDLE && (
-        <Settings fieldSize={fieldSize} setFieldSize={setFieldSize} stepsCount={stepsCount}
-                  setStepsCount={setStepsCount} />
+        <Settings fieldSize={fieldSize}
+                  setFieldSize={setFieldSize}
+                  stepsCount={stepsCount}
+                  setStepsCount={setStepsCount}
+        />
       )}
 
       {status !== GameStatuses.IDLE && fieldSize &&
@@ -42,11 +45,11 @@ export const Maze = () => {
       }
 
       {status === GameStatuses.IDLE && (
-        <button onClick={() => startGame()}>Play</button>
+        <button onClick={() => startGame()}>Начать игру</button>
       )}
 
       {status !== GameStatuses.IDLE && status !== GameStatuses.PLAYING && (
-        <button onClick={() => restartGame()}>Restart</button>
+        <button onClick={() => restartGame()}>Перезапустить игру</button>
       )}
     </div>
   );
