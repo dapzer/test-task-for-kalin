@@ -47,7 +47,7 @@ export const Maze = () => {
         <button onClick={() => startGame()}>Начать игру</button>
       )}
 
-      {status === GameStatuses.WIN || status === GameStatuses.LOSE && (
+      {(status === GameStatuses.WIN || status === GameStatuses.LOSE) && (
         <button onClick={() => restartGame()}>Перезапустить игру</button>
       )}
     </div>
