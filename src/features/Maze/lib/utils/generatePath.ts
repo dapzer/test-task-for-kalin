@@ -39,7 +39,6 @@ export const generatePath = (count: number, size: number, startPos: Coords) => {
           });
           break;
         }
-        continue
       }
     }
   }

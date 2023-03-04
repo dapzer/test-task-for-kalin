@@ -17,7 +17,6 @@ export const useMaze = () => {
   const startGame = () => {
     const startPosition = generateStartCoords(fieldSize);
     setStatus(GameStatuses.PLAYING);
-    setFieldSize(fieldSize);
     setStartPos(startPosition);
     setStepsPath(generatePath(stepsCount, fieldSize, startPosition));
   };
