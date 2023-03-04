@@ -30,10 +30,9 @@ export const Maze = () => {
         />
       )}
 
-      {status !== GameStatuses.IDLE && fieldSize &&
+      {status !== GameStatuses.IDLE && !!stepsPath.length &&
         <>
           <Field key={status}
-                 fields={Array(fieldSize * fieldSize).fill('_')}
                  startPos={startPos}
                  selectHandler={handleAnswer}
                  answer={answer}
@@ -48,7 +47,7 @@ export const Maze = () => {
         <button onClick={() => startGame()}>Начать игру</button>
       )}
 
-      {status !== GameStatuses.IDLE && status !== GameStatuses.PLAYING && (
+      {status === GameStatuses.WIN || status === GameStatuses.LOSE && (
         <button onClick={() => restartGame()}>Перезапустить игру</button>
       )}
     </div>

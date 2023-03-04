@@ -5,8 +5,8 @@ import { Coords } from '@/features/Maze/types/Coords';
 import { isSameCoords } from '@/features/Maze/lib/utils/isSameCoords';
 
 interface Props {
-  showWin: boolean;
-  showLose: boolean;
+  isWin: boolean;
+  isLose: boolean;
   selectHandler: () => void;
   cell: Coords;
   answer?: Coords;
@@ -21,13 +21,13 @@ export const FieldItem: FC<Props> = (props) => {
 
   return (
     <button className={styles.body} onClick={selectHandler} disabled={!!props.answer}>
-      {props.showWin && isSelected && (
+      {props.isWin && isSelected && (
         <div className={styles.win}>
           <Image src='/maze/icons/win.svg' width={90} height={90} alt='Win' />
         </div>
       )}
 
-      {props.showLose && isSelected && (
+      {props.isLose && isSelected && (
         <div className={styles.lose}>
           <Image src='/maze/icons/lose.svg' width={90} height={90} alt='Lose' />
         </div>

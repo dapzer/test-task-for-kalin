@@ -6,7 +6,6 @@ import { Coords } from '@/features/Maze/types/Coords';
 import { GameStatuses } from '@/features/Maze/types/Enums';
 
 interface Props {
-  fields: Array<string>;
   status: GameStatuses;
   selectHandler: (cell: Coords) => void;
   answer?: Coords;
@@ -26,12 +25,12 @@ export const Field: FC<Props> = (props) => {
       '--columns': props.fieldSize,
     } as React.CSSProperties}
     >
-      {props.fields.map((el, index) => (
+      {Array(props.fieldSize ** 2).fill('_').map((el, index) => (
         <FieldItem key={index}
                    selectHandler={() => selectCell(index)}
                    cell={numberToCoords(index + 1, props.fieldSize)}
-                   showWin={props.status === GameStatuses.WIN}
-                   showLose={props.status === GameStatuses.LOSE}
+                   isWin={props.status === GameStatuses.WIN}
+                   isLose={props.status === GameStatuses.LOSE}
                    startPos={props.startPos}
                    answer={props.answer} />
       ))}
