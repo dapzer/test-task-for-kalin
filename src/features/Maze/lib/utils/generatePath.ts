@@ -9,36 +9,32 @@ const moveDirections: Step[] = [
   { direction: 'bottom', x: 0, y: 1 },
 ];
 
+const isOutOfField = (fistCoords?: Coords, secondCoords?: Coords) => {
+  return fistCoords?.x === secondCoords?.x || fistCoords?.y === secondCoords?.y;
+};
+
 export const generatePath = (count: number, size: number, startPos: Coords) => {
-  const result: Step[] = [];
+  const result: Step[] = [startPos as Step];
+  const minCoords = { x: 0, y: 0 };
+  const maxCoords = { x: size + 1, y: size + 1 };
 
   for (let i = 0; i < count; i++) {
     while (true) {
       const direction = moveDirections[getRandomNumber(moveDirections.length) - 1];
-      if (result.length < 1) {
-        const newX = startPos!.x + direction.x;
-        const newY = startPos!.y + direction.y;
+      const lastCoords = result.at(-1)!
 
-        if (newX > 0 && newX <= size && newY > 0 && newY <= size) {
-          result.push({
-            direction: direction.direction,
-            x: newX,
-            y: newY,
-          });
-          break;
-        }
-      } else {
-        const newX = result.at(-1)!.x + direction.x;
-        const newY = result.at(-1)!.y + direction.y;
+      const newCoords = {
+        x: lastCoords.x + direction.x,
+        y: lastCoords.y + direction.y,
+      };
 
-        if (newX > 0 && newX <= size && newY > 0 && newY <= size) {
-          result.push({
-            direction: direction.direction,
-            x: newX,
-            y: newY,
-          });
-          break;
-        }
+      if (!isOutOfField(minCoords, newCoords) && !isOutOfField(maxCoords, newCoords)) {
+        result[i] = {
+          direction: direction.direction,
+          ...newCoords,
+        };
+
+        break;
       }
     }
   }
