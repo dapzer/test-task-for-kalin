@@ -44,11 +44,11 @@ export const Maze = () => {
       }
 
       {status === GameStatuses.IDLE && (
-        <button onClick={() => startGame()}>Начать игру</button>
+        <button onClick={startGame}>Начать игру</button>
       )}
 
       {(status === GameStatuses.WIN || status === GameStatuses.LOSE) && (
-        <button onClick={() => restartGame()}>Перезапустить игру</button>
+        <button onClick={restartGame}>Перезапустить игру</button>
       )}
     </div>
   );
